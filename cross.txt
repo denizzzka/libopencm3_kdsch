@@ -10,7 +10,7 @@ cpu = 'cortex-m0plus'
 endian = 'little'
 
 [built-in options]
-c_args = ['-mcpu=cortex-m0plus', '-mfloat-abi=soft', '-mabi=aapcs', '-mthumb']
+c_args = ['-DSAMD', '-mcpu=cortex-m0plus', '-mfloat-abi=soft', '-mabi=aapcs', '-mthumb']
 c_link_args = ['-mcpu=cortex-m0plus', '-mfloat-abi=soft', '-mabi=aapcs', '-mthumb']
 
 [properties]

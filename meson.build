@@ -24,7 +24,7 @@ subdir('lib/cm3')
 subdir('lib' / target)
 
 lib = static_library(
-    'opencm3',
+    'opencm3_' + target.replace('/', ''),
     src,
     native: false,
     build_by_default: true,

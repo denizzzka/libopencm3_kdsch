@@ -21,7 +21,12 @@ src = []
 irq2nvic = find_program('scripts/irq2nvic_h.py')
 
 subdir('lib/cm3')
+shared = []
 subdir('lib' / target)
+
+foreach dir : shared
+    subdir(dir)
+endforeach
 
 lib = static_library(
     'opencm3_' + target.replace('/', ''),

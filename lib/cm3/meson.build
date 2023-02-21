@@ -1,9 +1,9 @@
-src += [
-    files('assert.c'),
-    files('dwt.c'),
-    files('nvic.c'),
-    files('scb.c'),
-    files('sync.c'),
-    files('systick.c'),
-    files('vector.c'),
-]
+src += files(
+    'assert.c',
+    'dwt.c',
+    'nvic.c',
+    'scb.c',
+    'sync.c',
+    'systick.c',
+    'vector.c',
+)

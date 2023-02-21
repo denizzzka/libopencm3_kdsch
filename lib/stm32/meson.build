@@ -1,3 +1,1 @@
-src += [
-    files('can.c'),
-]
+src += files('can.c')

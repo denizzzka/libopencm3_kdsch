@@ -27,7 +27,12 @@ src = []
 src += custom_target(
     ' '.join(outfiles),
     output: outfiles,
-    command: [find_program('scripts/irq2nvic_h.py'), '@SOURCE_ROOT@', '@BUILD_ROOT@', target],
+    command: [
+        find_program('scripts/irq2nvic_h.py'),
+        '@SOURCE_ROOT@',
+        '@BUILD_ROOT@',
+        target,
+    ],
 )
 
 subdir('lib/cm3')

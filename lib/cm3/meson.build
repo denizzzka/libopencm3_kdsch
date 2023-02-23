@@ -1,4 +1,4 @@
-src += files(
+src_cm3 = files(
     'assert.c',
     'dwt.c',
     'nvic.c',

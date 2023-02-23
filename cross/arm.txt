@@ -6,4 +6,5 @@ strip = 'arm-none-eabi-strip'
 [host_machine]
 system = 'none'
 cpu_family = 'arm'
+cpu = 'cortex-m'
 endian = 'little'

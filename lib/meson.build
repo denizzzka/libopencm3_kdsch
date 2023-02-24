@@ -8,12 +8,13 @@ outfiles = ['nvic.h', 'irqhandlers.h']
 targets = []
 
 targets += {
-    'name': 'stm32f4',
-    'flags': [
-        '-mabi=aapcs',
-        '-mcpu=cortex-m4',
+    'name': 'stm32f4_handcrafted',
+    'fp_args': [
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
+    ],
+    'c_args': [
+        '-mcpu=cortex-m4',
         '-mthumb',
     ],
     'src': src_cm3 + custom_target(
@@ -85,13 +86,14 @@ targets += {
 }
 
 foreach target : targets
-    macro = '-D' + target['name'].to_upper()
+    def_target = '-D' + target['name'].to_upper()
 
+    # TODO: allow overriding c_args with CFLAGS and fp_args with FP_FLAGS
     static_library(
         'opencm3_' + target['name'],
         sources: target['src'],
-        c_args: target['flags'] + macro,
-        link_args: target['flags'],
+        c_args: target['fp_args'] + target['c_args'] + def_target,
+        link_args: target['fp_args'] + target['c_args'],
         native: false,
         include_directories: inc,
     )

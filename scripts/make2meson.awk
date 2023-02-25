@@ -152,7 +152,8 @@ ENDFILE {
 END {
 	print("foreach target : targets")
 	print("    # TODO: allow overriding c_args with CFLAGS and fp_args with FP_FLAGS")
-	print("    static_library(")
+	print("    # TODO: don't use an array for all the targets")
+	print("    set_variable(target['name'], static_library(")
 	print("        'opencm3_' + target['name'],")
 	print("        sources: target['src'],")
 	print("        c_args: target['fp_args'] + target['c_args'] + target['defines'],")
@@ -160,6 +161,6 @@ END {
 	print("        native: false,")
 	print("        include_directories: inc,")
 	print("        build_by_default: not meson.is_subproject(),")
-	print("    )")
+	print("    ))")
 	print("endforeach")
 }

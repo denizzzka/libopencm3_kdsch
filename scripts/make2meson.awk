@@ -2,7 +2,7 @@
 
 # Run like this:
 #
-#     ./scripts/make2meson.awk $(find lib -name Makefile | sort) >targets
+#     ./scripts/make2meson.awk $(find lib -name Makefile | sort) >lib/meson.build
 #
 
 function append(array, value) {

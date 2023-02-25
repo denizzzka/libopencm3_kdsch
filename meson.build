@@ -5,14 +5,6 @@ project(
     default_options: ['c_std=c99', 'warning_level=2', 'optimization=s'],
 )
 
-add_project_arguments(
-    '-ffunction-sections',
-    '-fdata-sections',
-    '-fno-common',
-    '-Wstrict-prototypes',
-    language: 'c',
-)
-
 inc = include_directories('include')
 
 # The script also generates vector_nvic.c, but this file is not

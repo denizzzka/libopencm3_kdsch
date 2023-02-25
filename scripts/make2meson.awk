@@ -159,6 +159,7 @@ END {
 	print("        link_args: target['fp_args'] + target['c_args'],")
 	print("        native: false,")
 	print("        include_directories: inc,")
+	print("        build_by_default: not meson.is_subproject(),")
 	print("    )")
 	print("endforeach")
 }

@@ -1396,5 +1396,6 @@ foreach target : targets
         link_args: target['fp_args'] + target['c_args'],
         native: false,
         include_directories: inc,
+        build_by_default: not meson.is_subproject(),
     )
 endforeach

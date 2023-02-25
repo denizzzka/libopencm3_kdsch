@@ -1390,7 +1390,7 @@ targets += {
 foreach target : targets
     # TODO: allow overriding c_args with CFLAGS and fp_args with FP_FLAGS
     # TODO: don't use an array for all the targets
-    set_variable(target['name'], static_library(
+    set_variable(target['name'], declare_dependency(include_directories: inc, link_with: static_library(
         'opencm3_' + target['name'],
         sources: target['src'],
         c_args: target['fp_args'] + target['c_args'] + target['defines'],
@@ -1398,5 +1398,5 @@ foreach target : targets
         native: false,
         include_directories: inc,
         build_by_default: not meson.is_subproject(),
-    ))
+    )))
 endforeach

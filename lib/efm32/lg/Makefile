@@ -31,7 +31,7 @@ TGT_CFLAGS	= -Os \
 		  -Wundef -Wshadow \
 		  -I../../../include -fno-common \
 		  -mcpu=cortex-m3 $(FP_FLAGS) -mthumb -Wstrict-prototypes \
-		  -ffunction-sections -fdata-sections -MD -D$(FAMILY)
+		  -ffunction-sections -fdata-sections -MD -DEFM32LG
 TGT_CFLAGS      += $(DEBUG_FLAGS)
 TGT_CFLAGS	+= $(STANDARD_FLAGS)
 # ARFLAGS	= rcsv

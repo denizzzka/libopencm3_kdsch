@@ -32,7 +32,7 @@ TGT_CFLAGS	= -Os \
 		  -Wundef -Wshadow \
 		  -I../../../include -fno-common \
 		  -mcpu=cortex-m4 $(FP_FLAGS) -mthumb -Wstrict-prototypes \
-		  -ffunction-sections -fdata-sections -MD -D$(FAMILY)
+		  -ffunction-sections -fdata-sections -MD -DEZR32WG
 TGT_CFLAGS      += $(DEBUG_FLAGS)
 # ARFLAGS	= rcsv
 ARFLAGS		= rcs

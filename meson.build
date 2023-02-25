@@ -13,8 +13,6 @@ add_project_arguments(
     language: 'c',
 )
 
-target = meson.get_external_property('target', 'stm32/f4')
-
 inc = include_directories('include')
 
 # The script also generates vector_nvic.c, but this file is not

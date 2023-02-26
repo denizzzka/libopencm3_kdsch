@@ -109,8 +109,9 @@ ENDFILE {
 		subdir_path = "lib/" segment "/meson.build"
 		printf("%s_irq = custom_target(\n", name) >subdir_path
 		printf("    '%s' + ' '.join(outfiles),\n", name) >>subdir_path
+		printf("    input: %s_json,\n", name) >>subdir_path
 		print ("    output: outfiles,") >>subdir_path
-		printf("    command: [irq2nvic, '@SOURCE_ROOT@', '@BUILD_ROOT@', '%s'],\n", segment) >>subdir_path
+		printf("    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', '%s'],\n", segment) >>subdir_path
 		print (")") >>subdir_path
 	
 		printf("subdir('%s')\n\n", segment)

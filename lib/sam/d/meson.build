@@ -1,5 +1,6 @@
 samd_irq = custom_target(
     'samd' + ' '.join(outfiles),
+    input: samd_json,
     output: outfiles,
-    command: [irq2nvic, '@SOURCE_ROOT@', '@BUILD_ROOT@', 'sam/d'],
+    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'sam/d'],
 )

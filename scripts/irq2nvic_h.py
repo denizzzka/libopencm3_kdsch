@@ -140,11 +140,10 @@ def makeparentdir(filename):
         pass
 
 def main():
-    src_dir = sys.argv[1] # absolute path
+    infile = sys.argv[1]
     build_dir = sys.argv[2] # absolute path
     target = sys.argv[3] # path segment
 
-    infile = os.path.join(src_dir, 'include/libopencm3', target, 'irq.json')
     nvic_h = os.path.join(build_dir, 'lib/libopencm3', target, 'nvic.h')
     vector_nvic_c = os.path.join(build_dir, target, 'vector_nvic.c')
     cmsis = os.path.join(build_dir, 'libopencmsis', target, 'irqhandlers.h')

@@ -4,4 +4,3 @@ lm3s_irq = custom_target(
     output: outfiles,
     command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'lm3s'],
 )
-lm4f_irq = []

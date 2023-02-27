@@ -103,10 +103,10 @@ ENDFILE {
 	asort(fp_args)
 	asort(defines)
 
+	subdir_path = "lib/" segment "/meson.build"
 	if (name ~ /lm4f/) {
 		printf("%s_irq = []\n", name) >subdir_path
 	} else {
-		subdir_path = "lib/" segment "/meson.build"
 		printf("%s_irq = custom_target(\n", name) >subdir_path
 		printf("    '%s' + ' '.join(outfiles),\n", name) >>subdir_path
 		printf("    input: %s_json,\n", name) >>subdir_path

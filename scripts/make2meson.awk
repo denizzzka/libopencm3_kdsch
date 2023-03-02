@@ -97,23 +97,51 @@ BEGINFILE {
 	}
 }
 
+function gen_nvic_h(segment, name) {
+	subdir_path = "include/libopencm3/" segment "/meson.build"
+	printf("%s_nvic_h = custom_target(\n", name) >subdir_path
+	printf("    '%s_nvic.h',\n", name) >>subdir_path
+	printf("    input: %s_json,\n", name) >>subdir_path
+	print ("    output: 'nvic.h',") >>subdir_path
+	printf("    command: [irq2nvic, '--nvic', '@INPUT@', '@OUTPUT@'],\n") >>subdir_path
+	print (")") >>subdir_path
+}
+
+function gen_irqhandlers_h(segment, name) {
+	if (name == "") {
+		printf("segment: %s; name is empty\n", segment) >>/dev/stderr
+		exit(1)
+	}
+	subdir_path = "include/libopencmsis/" segment "/meson.build"
+	printf("%s_irqhandlers_h = custom_target(\n", name) >subdir_path
+	printf("    '%s_irqhandlers.h',\n", name) >>subdir_path
+	printf("    input: %s_json,\n", name) >>subdir_path
+	print ("    output: 'irqhandlers.h',") >>subdir_path
+	printf("    command: [irq2nvic, '--irqhandlers', '@INPUT@', '@OUTPUT@'],\n") >>subdir_path
+	print (")") >>subdir_path
+}
+
+function gen_vector_nvic_h(segment, name) {
+	subdir_path = "lib/" segment "/meson.build"
+	printf("%s_vector_nvic_h = custom_target(\n", name) >subdir_path
+	printf("    '%s_vector_nvic.h',\n", name) >>subdir_path
+	printf("    input: %s_json,\n", name) >>subdir_path
+	print ("    output: 'vector_nvic.h',") >>subdir_path
+	printf("    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],\n") >>subdir_path
+	print (")") >>subdir_path
+}
+
 ENDFILE {
 	asort(sources)
 	asort(c_args)
 	asort(fp_args)
 	asort(defines)
 
-	subdir_path = "lib/" segment "/meson.build"
 	if (name ~ /lm4f/) {
-		printf("%s_irq = []\n", name) >subdir_path
 	} else {
-		printf("%s_irq = custom_target(\n", name) >subdir_path
-		printf("    '%s' + ' '.join(outfiles),\n", name) >>subdir_path
-		printf("    input: %s_json,\n", name) >>subdir_path
-		print ("    output: outfiles,") >>subdir_path
-		printf("    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', '%s'],\n", segment) >>subdir_path
-		print (")") >>subdir_path
-	
+		gen_irqhandlers_h(segment, name)
+		gen_nvic_h(segment, name)
+		gen_vector_nvic_h(segment, name)
 		printf("subdir('%s')\n\n", segment)
 	}
 
@@ -140,7 +168,12 @@ ENDFILE {
 	}
 
 	print("    ],")
-    	printf("    'src': src_cm3 + %s_irq + files(\n", name)
+
+	if  (name ~ /lm4f/) {
+		print("    'src': src_cm3 + files(")
+	} else {
+		printf("    'src': src_cm3 + %s_vector_nvic_h + %s_irqhandlers_h + %s_nvic_h + files(\n", name, name, name)
+	}
 
 	for (i in sources) {
 		printf("        '%s',\n", sources[i])

@@ -17,7 +17,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + efm32ezr32wg_irq + files(
+    'src': src_cm3 + efm32ezr32wg_vector_nvic_h + efm32ezr32wg_irqhandlers_h + efm32ezr32wg_nvic_h + files(
         'efm32/common/acmp_common.c',
         'efm32/common/adc_common.c',
         'efm32/common/burtc_common.c',
@@ -60,7 +60,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + efm32gg_irq + files(
+    'src': src_cm3 + efm32gg_vector_nvic_h + efm32gg_irqhandlers_h + efm32gg_nvic_h + files(
     ),
 }
 
@@ -77,7 +77,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + efm32g_irq + files(
+    'src': src_cm3 + efm32g_vector_nvic_h + efm32g_irqhandlers_h + efm32g_nvic_h + files(
     ),
 }
 
@@ -94,7 +94,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + efm32hg_irq + files(
+    'src': src_cm3 + efm32hg_vector_nvic_h + efm32hg_irqhandlers_h + efm32hg_nvic_h + files(
         'efm32/common/gpio_common.c',
         'efm32/common/timer_common.c',
         'efm32/hg/cmu.c',
@@ -124,7 +124,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + efm32lg_irq + files(
+    'src': src_cm3 + efm32lg_vector_nvic_h + efm32lg_irqhandlers_h + efm32lg_nvic_h + files(
         'efm32/common/acmp_common.c',
         'efm32/common/adc_common.c',
         'efm32/common/burtc_common.c',
@@ -167,7 +167,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + efm32tg_irq + files(
+    'src': src_cm3 + efm32tg_vector_nvic_h + efm32tg_irqhandlers_h + efm32tg_nvic_h + files(
     ),
 }
 
@@ -186,7 +186,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + efm32wg_irq + files(
+    'src': src_cm3 + efm32wg_vector_nvic_h + efm32wg_irqhandlers_h + efm32wg_nvic_h + files(
         'efm32/common/acmp_common.c',
         'efm32/common/adc_common.c',
         'efm32/common/burtc_common.c',
@@ -229,7 +229,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + gd32f1x0_irq + files(
+    'src': src_cm3 + gd32f1x0_vector_nvic_h + gd32f1x0_irqhandlers_h + gd32f1x0_nvic_h + files(
         'gd32/f1x0/flash.c',
         'gd32/f1x0/rcc.c',
         'stm32/common/flash_common_all.c',
@@ -254,7 +254,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + lm3s_irq + files(
+    'src': src_cm3 + lm3s_vector_nvic_h + lm3s_irqhandlers_h + lm3s_nvic_h + files(
         'lm3s/gpio.c',
         'lm3s/rcc.c',
         'lm3s/usart.c',
@@ -274,7 +274,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + lm4f_irq + files(
+    'src': src_cm3 + files(
         'lm4f/gpio.c',
         'lm4f/rcc.c',
         'lm4f/systemcontrol.c',
@@ -304,7 +304,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + lpc13xx_irq + files(
+    'src': src_cm3 + lpc13xx_vector_nvic_h + lpc13xx_irqhandlers_h + lpc13xx_nvic_h + files(
         'lpc13xx/gpio.c',
     ),
 }
@@ -322,7 +322,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + lpc17xx_irq + files(
+    'src': src_cm3 + lpc17xx_vector_nvic_h + lpc17xx_irqhandlers_h + lpc17xx_nvic_h + files(
         'lpc17xx/gpio.c',
         'lpc17xx/pwr.c',
     ),
@@ -342,7 +342,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + lpc43xxm0_irq + files(
+    'src': src_cm3 + lpc43xxm0_vector_nvic_h + lpc43xxm0_irqhandlers_h + lpc43xxm0_nvic_h + files(
         'lpc43xx/gpio.c',
         'lpc43xx/i2c.c',
         'lpc43xx/scu.c',
@@ -368,7 +368,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + lpc43xxm4_irq + files(
+    'src': src_cm3 + lpc43xxm4_vector_nvic_h + lpc43xxm4_irqhandlers_h + lpc43xxm4_nvic_h + files(
         'lpc43xx/gpio.c',
         'lpc43xx/i2c.c',
         'lpc43xx/ipc.c',
@@ -394,7 +394,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + msp432e4_irq + files(
+    'src': src_cm3 + msp432e4_vector_nvic_h + msp432e4_irqhandlers_h + msp432e4_nvic_h + files(
         'msp432/e4/gpio.c',
         'msp432/e4/systemcontrol.c',
     ),
@@ -414,7 +414,7 @@ targets += {
     'fp_args': [
         '-msoft-float',
     ],
-    'src': src_cm3 + nrf51_irq + files(
+    'src': src_cm3 + nrf51_vector_nvic_h + nrf51_irqhandlers_h + nrf51_nvic_h + files(
         'nrf/51/./radio.c',
         'nrf/51/clock.c',
         'nrf/common/clock_common.c',
@@ -443,7 +443,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + nrf52_irq + files(
+    'src': src_cm3 + nrf52_vector_nvic_h + nrf52_irqhandlers_h + nrf52_nvic_h + files(
         'nrf/52/i2c.c',
         'nrf/common/clock_common.c',
         'nrf/common/gpio.c',
@@ -471,7 +471,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + pac55xx_irq + files(
+    'src': src_cm3 + pac55xx_vector_nvic_h + pac55xx_irqhandlers_h + pac55xx_nvic_h + files(
         'pac55xx/can.c',
         'pac55xx/ccs.c',
         'pac55xx/gpio.c',
@@ -493,7 +493,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + sam3a_irq + files(
+    'src': src_cm3 + sam3a_vector_nvic_h + sam3a_irqhandlers_h + sam3a_nvic_h + files(
         'sam/common/gpio_common_3a3u3x.c',
         'sam/common/gpio_common_all.c',
         'sam/common/pmc.c',
@@ -515,7 +515,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + sam3n_irq + files(
+    'src': src_cm3 + sam3n_vector_nvic_h + sam3n_irqhandlers_h + sam3n_nvic_h + files(
         'sam/common/gpio_common_3n3s.c',
         'sam/common/gpio_common_all.c',
         'sam/common/pmc.c',
@@ -537,7 +537,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + sam3s_irq + files(
+    'src': src_cm3 + sam3s_vector_nvic_h + sam3s_irqhandlers_h + sam3s_nvic_h + files(
         'sam/common/gpio_common_3n3s.c',
         'sam/common/gpio_common_all.c',
         'sam/common/pmc.c',
@@ -559,7 +559,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + sam3u_irq + files(
+    'src': src_cm3 + sam3u_vector_nvic_h + sam3u_irqhandlers_h + sam3u_nvic_h + files(
         'sam/common/gpio_common_3a3u3x.c',
         'sam/common/gpio_common_all.c',
         'sam/common/pmc.c',
@@ -581,7 +581,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + sam3x_irq + files(
+    'src': src_cm3 + sam3x_vector_nvic_h + sam3x_irqhandlers_h + sam3x_nvic_h + files(
         'sam/common/gpio_common_3a3u3x.c',
         'sam/common/gpio_common_all.c',
         'sam/common/pmc.c',
@@ -604,7 +604,7 @@ targets += {
     'fp_args': [
         '-msoft-float',
     ],
-    'src': src_cm3 + sam4l_irq + files(
+    'src': src_cm3 + sam4l_vector_nvic_h + sam4l_irqhandlers_h + sam4l_nvic_h + files(
         'sam/4l/adcife.c',
         'sam/4l/gpio.c',
         'sam/4l/pm.c',
@@ -627,7 +627,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + samd_irq + files(
+    'src': src_cm3 + samd_vector_nvic_h + samd_irqhandlers_h + samd_nvic_h + files(
         'sam/d/port.c',
     ),
 }
@@ -645,7 +645,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + stm32f0_irq + files(
+    'src': src_cm3 + stm32f0_vector_nvic_h + stm32f0_irqhandlers_h + stm32f0_nvic_h + files(
         'stm32/can.c',
         'stm32/common/adc_common_v2.c',
         'stm32/common/crc_common_all.c',
@@ -704,7 +704,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + stm32f1_irq + files(
+    'src': src_cm3 + stm32f1_vector_nvic_h + stm32f1_irqhandlers_h + stm32f1_nvic_h + files(
         'ethernet/mac.c',
         'ethernet/mac_stm32fxx7.c',
         'ethernet/phy.c',
@@ -765,7 +765,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + stm32f2_irq + files(
+    'src': src_cm3 + stm32f2_vector_nvic_h + stm32f2_irqhandlers_h + stm32f2_nvic_h + files(
         'stm32/common/crc_common_all.c',
         'stm32/common/crypto_common_f24.c',
         'stm32/common/dac_common_all.c',
@@ -825,7 +825,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + stm32f3_irq + files(
+    'src': src_cm3 + stm32f3_vector_nvic_h + stm32f3_irqhandlers_h + stm32f3_nvic_h + files(
         'stm32/can.c',
         'stm32/common/adc_common_v2.c',
         'stm32/common/adc_common_v2_multi.c',
@@ -885,7 +885,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + stm32f4_irq + files(
+    'src': src_cm3 + stm32f4_vector_nvic_h + stm32f4_irqhandlers_h + stm32f4_nvic_h + files(
         'ethernet/mac.c',
         'ethernet/mac_stm32fxx7.c',
         'ethernet/phy.c',
@@ -964,7 +964,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv5-sp-d16',
     ],
-    'src': src_cm3 + stm32f7_irq + files(
+    'src': src_cm3 + stm32f7_vector_nvic_h + stm32f7_irqhandlers_h + stm32f7_nvic_h + files(
         'ethernet/mac.c',
         'ethernet/mac_stm32fxx7.c',
         'ethernet/phy.c',
@@ -1032,7 +1032,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + stm32g0_irq + files(
+    'src': src_cm3 + stm32g0_vector_nvic_h + stm32g0_irqhandlers_h + stm32g0_nvic_h + files(
         'stm32/common/adc_common_v2.c',
         'stm32/common/crc_common_all.c',
         'stm32/common/dac_common_all.c',
@@ -1078,7 +1078,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + stm32g4_irq + files(
+    'src': src_cm3 + stm32g4_vector_nvic_h + stm32g4_irqhandlers_h + stm32g4_nvic_h + files(
         'stm32/common/adc_common_v2.c',
         'stm32/common/adc_common_v2_multi.c',
         'stm32/common/cordic_common_v1.c',
@@ -1140,7 +1140,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv5-d16',
     ],
-    'src': src_cm3 + stm32h7_irq + files(
+    'src': src_cm3 + stm32h7_vector_nvic_h + stm32h7_irqhandlers_h + stm32h7_nvic_h + files(
         'stm32/common/dac_common_all.c',
         'stm32/common/dac_common_v2.c',
         'stm32/common/exti_common_all.c',
@@ -1178,7 +1178,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + stm32l0_irq + files(
+    'src': src_cm3 + stm32l0_vector_nvic_h + stm32l0_irqhandlers_h + stm32l0_nvic_h + files(
         'stm32/common/adc_common_v2.c',
         'stm32/common/crc_common_all.c',
         'stm32/common/crc_v2.c',
@@ -1233,7 +1233,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + stm32l1_irq + files(
+    'src': src_cm3 + stm32l1_vector_nvic_h + stm32l1_irqhandlers_h + stm32l1_nvic_h + files(
         'stm32/common/adc_common_v1.c',
         'stm32/common/adc_common_v1_multi.c',
         'stm32/common/crc_common_all.c',
@@ -1292,7 +1292,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + stm32l4_irq + files(
+    'src': src_cm3 + stm32l4_vector_nvic_h + stm32l4_irqhandlers_h + stm32l4_nvic_h + files(
         'stm32/can.c',
         'stm32/common/adc_common_v2.c',
         'stm32/common/adc_common_v2_multi.c',
@@ -1353,7 +1353,7 @@ targets += {
     ],
     'fp_args': [
     ],
-    'src': src_cm3 + swm050_irq + files(
+    'src': src_cm3 + swm050_vector_nvic_h + swm050_irqhandlers_h + swm050_nvic_h + files(
         'swm050/clk.c',
         'swm050/flash.c',
         'swm050/gpio.c',
@@ -1379,7 +1379,7 @@ targets += {
         '-mfloat-abi=hard',
         '-mfpu=fpv4-sp-d16',
     ],
-    'src': src_cm3 + vf6xx_irq + files(
+    'src': src_cm3 + vf6xx_vector_nvic_h + vf6xx_irqhandlers_h + vf6xx_nvic_h + files(
         'vf6xx/ccm.c',
         'vf6xx/gpio.c',
         'vf6xx/iomuxc.c',

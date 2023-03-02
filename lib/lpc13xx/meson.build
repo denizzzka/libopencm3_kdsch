@@ -1,6 +1,6 @@
-lpc13xx_irq = custom_target(
-    'lpc13xx' + ' '.join(outfiles),
+lpc13xx_vector_nvic_h = custom_target(
+    'lpc13xx_vector_nvic.h',
     input: lpc13xx_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'lpc13xx'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

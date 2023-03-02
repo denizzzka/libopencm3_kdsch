@@ -1,6 +1,6 @@
-gd32f1x0_irq = custom_target(
-    'gd32f1x0' + ' '.join(outfiles),
+gd32f1x0_vector_nvic_h = custom_target(
+    'gd32f1x0_vector_nvic.h',
     input: gd32f1x0_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'gd32/f1x0'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

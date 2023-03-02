@@ -1,6 +1,6 @@
-nrf52_irq = custom_target(
-    'nrf52' + ' '.join(outfiles),
+nrf52_vector_nvic_h = custom_target(
+    'nrf52_vector_nvic.h',
     input: nrf52_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'nrf/52'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

@@ -1,6 +1,6 @@
-msp432e4_irq = custom_target(
-    'msp432e4' + ' '.join(outfiles),
+msp432e4_vector_nvic_h = custom_target(
+    'msp432e4_vector_nvic.h',
     input: msp432e4_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'msp432/e4'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

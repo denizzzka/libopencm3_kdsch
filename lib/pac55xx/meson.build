@@ -1,6 +1,6 @@
-pac55xx_irq = custom_target(
-    'pac55xx' + ' '.join(outfiles),
+pac55xx_vector_nvic_h = custom_target(
+    'pac55xx_vector_nvic.h',
     input: pac55xx_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'pac55xx'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

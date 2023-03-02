@@ -48,7 +48,7 @@ endif
 # Avoid the use of shell find, for windows compatibility
 IRQ_DEFN_FILES  := $(foreach TARGET,$(TARGETS),$(wildcard include/libopencm3/$(TARGET)/irq.json))
 NVIC_H := $(IRQ_DEFN_FILES:%/irq.json=%/nvic.h)
-VECTOR_NVIC_C := $(IRQ_DEFN_FILES:./include/libopencm3/%/irq.json=./lib/%/vector_nvic.c)
+VECTOR_NVIC_C := $(IRQ_DEFN_FILES:./include/libopencm3/%/irq.json=./lib/%/vector_nvic.h)
 IRQHANDLERS_H := $(IRQ_DEFN_FILES:./include/libopencm3/%/irq.json=./include/libopencmsis/%/irqhandlers.h)
 IRQ_GENERATED_FILES = $(NVIC_H) $(VECTOR_NVIC_C) $(IRQHANDLERS_H)
 STYLECHECKFILES := $(wildcard include/*/*.h include/*/*/*.h include/*/*/*/*.h)
@@ -59,7 +59,7 @@ all: build
 
 build: lib
 
-include/libopencm3/%/nvic.h lib/%/vector_nvic.c include/libopencmsis/%/irqhandlers.h: include/libopencm3/%/irq.json ./scripts/irq2nvic_h
+include/libopencm3/%/nvic.h lib/%/vector_nvic.h include/libopencmsis/%/irqhandlers.h: include/libopencm3/%/irq.json ./scripts/irq2nvic_h
 	@printf "  GENHDR  $*\n";
 	$(Q)./scripts/irq2nvic_h ./$<;
 

@@ -1,6 +1,6 @@
-vf6xx_irq = custom_target(
-    'vf6xx' + ' '.join(outfiles),
+vf6xx_vector_nvic_h = custom_target(
+    'vf6xx_vector_nvic.h',
     input: vf6xx_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'vf6xx'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

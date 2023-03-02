@@ -30,9 +30,9 @@ include/libopencm3/**/**/nvic.h
 !include/libopencm3/dispatch/nvic.h
 !include/libopencm3/lm4f/nvic.h
 lib/**/vector_nvic.c
-lib/**/**/vector_nvic.c
+lib/**/**/vector_nvic.h
 # (not this one either)
-!lib/dispatch/vector_nvic.c
+!lib/dispatch/vector_nvic.h
 DoxygenLayout.xml
 doc/*/Doxyfile
 doc/*/DoxygenLayout_*.xml

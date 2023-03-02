@@ -1,6 +1,6 @@
-stm32f2_irq = custom_target(
-    'stm32f2' + ' '.join(outfiles),
+stm32f2_vector_nvic_h = custom_target(
+    'stm32f2_vector_nvic.h',
     input: stm32f2_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'stm32/f2'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

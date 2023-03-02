@@ -1,6 +1,6 @@
-efm32ezr32wg_irq = custom_target(
-    'efm32ezr32wg' + ' '.join(outfiles),
+efm32ezr32wg_vector_nvic_h = custom_target(
+    'efm32ezr32wg_vector_nvic.h',
     input: efm32ezr32wg_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'efm32/ezr32wg'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

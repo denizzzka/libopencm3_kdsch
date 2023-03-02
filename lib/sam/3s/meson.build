@@ -1,6 +1,6 @@
-sam3s_irq = custom_target(
-    'sam3s' + ' '.join(outfiles),
+sam3s_vector_nvic_h = custom_target(
+    'sam3s_vector_nvic.h',
     input: sam3s_json,
-    output: outfiles,
-    command: [irq2nvic, '@INPUT@', '@BUILD_ROOT@', 'sam/3s'],
+    output: 'vector_nvic.h',
+    command: [irq2nvic, '--vector_nvic', '@INPUT@', '@OUTPUT@'],
 )

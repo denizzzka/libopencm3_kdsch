@@ -1,3 +1,47 @@
+# libopencm3 built by Meson
+
+This project ports libopencm3's build system to [Meson](https://mesonbuild.com/).
+
+
+## Why?
+
+Meson better supports projects with several dependencies than
+Make. Therefore, it is a reasonable choice in more complex microcontroller
+projects.
+
+
+## Status
+
+Prototype.
+
+These use-cases are complete, where complete means the build finishes without
+error and the artifacts are not obviously wrong:
+
+1. Build all targets:
+
+	meson setup .build --cross-file lib/cross.txt
+	ninja -C .build
+
+2. Build one target, as a dependency in another Meson project
+
+
+These use-cases are incomplete:
+
+3. Build doxygen documentation
+
+4. Run tests
+
+
+And some signs of maturity have not yet emerged:
+
+- Compare build artifacts between the old and new build systems.
+- Document the new build system.
+- Test built applications on real hardware.
+
+
+
+---
+
 README
 ======
 [![Build Status](https://travis-ci.org/libopencm3/libopencm3.svg?branch=master)](https://travis-ci.org/libopencm3/libopencm3)

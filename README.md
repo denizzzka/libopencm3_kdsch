@@ -5,9 +5,8 @@ This project ports libopencm3's build system to [Meson](https://mesonbuild.com/)
 
 ## Why?
 
-Meson better supports projects with several dependencies than
-Make. Therefore, it is a reasonable choice in more complex microcontroller
-projects.
+Meson supports multi-dependency projects better than Make does. Therefore,
+Meson is a reasonable choice in complex microcontroller projects.
 
 
 ## Status

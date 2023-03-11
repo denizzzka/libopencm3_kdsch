@@ -1398,5 +1398,6 @@ foreach target : targets
         native: false,
         include_directories: inc,
         build_by_default: not meson.is_subproject(),
+        pic: false,
     )))
 endforeach

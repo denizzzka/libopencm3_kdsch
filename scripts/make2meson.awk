@@ -195,6 +195,7 @@ END {
 	print("        native: false,")
 	print("        include_directories: inc,")
 	print("        build_by_default: not meson.is_subproject(),")
+	print("        pic: false,")
 	print("    )))")
 	print("endforeach")
 }

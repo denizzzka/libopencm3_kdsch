@@ -23,6 +23,8 @@ error and the artifacts are not obviously wrong:
 
 2. Build one target, as a dependency in another Meson project
 
+3. The stm32f4 target has been tested on hardware.
+
 
 These use-cases are incomplete:
 
@@ -35,7 +37,7 @@ And some signs of maturity have not yet emerged:
 
 - Compare build artifacts between the old and new build systems.
 - Document the new build system.
-- Test built applications on real hardware.
+- Test more targets on real hardware.
 
 
 
